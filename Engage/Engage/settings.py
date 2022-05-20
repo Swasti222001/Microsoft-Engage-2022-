@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 import os
 from pathlib import Path
+import django
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -76,6 +77,8 @@ WSGI_APPLICATION = 'Engage.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+'''
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -83,6 +86,16 @@ DATABASES = {
     }
 }
 
+'''
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'test',
+    }
+}
+
+print(django.db.connection.ensure_connection())
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -125,7 +138,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#Static custom code(S)
+# Static custom code(S)
 STATICFILES_DIRS = [
-   os.path.join(BASE_DIR, "static")
+    os.path.join(BASE_DIR, "static")
 ]
